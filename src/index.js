@@ -3,11 +3,33 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.js'
+import FrontendLayout from './Components/FrotendLayout';
+import { BrowserRouter as Router, Route,Routes, Switch,Link } from 'react-router-dom';
+import BackendLayout from './Components/BackendLayout';
+import Admin from './Components/backend/Admin';
+import Home from './Components/Frontend/Home/Home';
+import About from './Components/Frontend/About';
+import Contact from './Components/Frontend/Contact';
+import Dashboard from './Components/backend/Dashboard';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+   <Router>
+      <Routes>
+      <Route path="/" element={<FrontendLayout><Home /></FrontendLayout>} />
+        <Route path="/about" element={<FrontendLayout><About /></FrontendLayout>} />
+        <Route path="/contact" element={<FrontendLayout><Contact /></FrontendLayout>} />
+
+
+        <Route path="/admin" element={<BackendLayout><Dashboard /></BackendLayout>} />
+      </Routes>
+   </Router>
+
+
   </React.StrictMode>
 );
 

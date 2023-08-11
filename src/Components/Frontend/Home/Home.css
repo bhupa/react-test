@@ -1,0 +1,109 @@
+.custom-bg {
+    background-image: url('../../../img/home-rev-img-3.jpeg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+    color: #fff;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  .form-inline {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .form-inline .form-control {
+    margin-right: 10px;
+  }
+
+  .form-inline .btn {
+    margin-left: 10px;
+  }
+  .home-banner-wrapper{
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    grid-area: 1/1/2/2;
+    justify-self: center;
+    margin-bottom: 105px;
+    z-index: 99;
+  }
+  .home-wrapper-style{
+    text-align: left;
+  }
+  .home-section-title {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    font-size: 60px;
+    line-height: 1.186em;
+    text-shadow: 0 0 35px rgba(0,0,0,.25);
+}
+.qodef-m-decorated {
+    font-weight: var(--decorated-font-weight,600);
+}
+.home-content-tab{
+    background-color: rgba(255,255,255,.41);
+    border-radius: 5px;
+    gap: 23px;
+    padding: 30px;
+}
+
+.form-control {
+    width: 240px !important;
+    border-radius: unset !important;
+    height: 40px;
+}
+.btn {
+    border-radius: unset !important;
+    width: 200px !important;
+}
+.qodef-section-title {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+}
+.qodef-h2, h2 {
+    font-family: Poppins,sans-serif;
+    font-weight: 500;
+    color: #000;
+    font-size: 45px;
+    line-height: 1.13333em;
+    margin: 25px 0;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+.col-divider {
+    border-style: solid;
+    border-width: 0 1px 0 0;
+    border-color: #c1c1c1;
+    transition: background .3s,border .3s,border-radius .3s,box-shadow .3s;
+    margin: 0;
+    --e-column-margin-right: 0px;
+    --e-column-margin-left: 0px;
+    padding: 0 20px 8px 0;
+  }
+   .qodef-m-content {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    margin-top: 17px;
+}
+.qodef-m-title {
+    font-family: Poppins,sans-serif;
+    font-weight: 500;
+    color: #000;
+    font-size: 26px;
+    line-height: 1.19231em;
+    /* margin: 25px 0; */
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+
+  
