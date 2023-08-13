@@ -7,31 +7,28 @@ import '@fontsource/roboto/700.css';
 import theme from '../config/theme';
 import Header from './backend/Header/Header';
 import Sidebar from './backend/Sidebar/SideBar';
-// import Footer from './backend/Footer/Footer';
-// import { BrowserRouter as Router, Route,Routes, Switch,Link } from 'react-router-dom';
+import { ProSidebarProvider } from 'react-pro-sidebar'
+import AppRoutes from './router/AppRoutes';
+import { BrowserRouter as Router, Route,Routes, Switch,Link } from 'react-router-dom';
 
 function BackendLayout ({ children }) {
    
         return (
             <div>
-                {/* <Sidebar />
-                <div className="admin-content">
-                <Header />
-                {children}
-                <Footer />
-                </div> */}
              <React.Fragment>
                 <ThemeProvider theme={theme}>
-                    <CssBaseline />
-                  
+                    <ProSidebarProvider>
+                        <CssBaseline />
                         <Header />
                         <Box  sx={styles.container}>
-                        <Sidebar />
-                        <Box component={'main'} >
-
+                          
+                                <Sidebar />
+                                <Box component={'main'}  sx={styles.mainSection}>
+                                            {children}
+                                </Box>
+                           
                         </Box>
-
-                    </Box>
+                    </ProSidebarProvider>
                 </ThemeProvider>
              </React.Fragment>
 
@@ -49,7 +46,7 @@ const styles = {
     height:'calc(100% - 64px)'
     },
     mainSection:{
-        p:1,
+        p:2,
         width:'100%',
         height:'100%',
         overflow:'auto'

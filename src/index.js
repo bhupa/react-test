@@ -13,6 +13,8 @@ import Home from './Components/Frontend/Home/Home';
 import About from './Components/Frontend/About';
 import Contact from './Components/Frontend/Contact';
 import Dashboard from './Components/backend/Dashboard';
+import AppRoutes from './Components/router/AppRoutes';
+import Login from './Components/auth/Login';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -20,15 +22,15 @@ root.render(
   <React.StrictMode>
    <Router>
       <Routes>
-      <Route path="/" element={<FrontendLayout><Home /></FrontendLayout>} />
+       <Route path="/" element={<FrontendLayout><Home /></FrontendLayout>} />
         <Route path="/about" element={<FrontendLayout><About /></FrontendLayout>} />
         <Route path="/contact" element={<FrontendLayout><Contact /></FrontendLayout>} />
-
-
-        <Route path="/admin" element={<BackendLayout><Dashboard /></BackendLayout>} />
+        <Route path="/*" element={<BackendLayout><AppRoutes /></BackendLayout>} />
+        {/* <Route path="/dashboard" element={<BackendLayout><Dashboard /></BackendLayout>} />
+        <Route path="/analytics" element={<BackendLayout><Analytics /></BackendLayout>} /> */}
+        <Route path="/login" element={<Login />} />
       </Routes>
    </Router>
-
 
   </React.StrictMode>
 );

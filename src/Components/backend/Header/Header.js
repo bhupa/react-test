@@ -4,13 +4,15 @@ import MenuTwoToneIcon from '@mui/icons-material/MenuTwoTone';
 import Notifications from '@mui/icons-material/Notifications';
 import LogoutIcon from '@mui/icons-material/Logout';
 import SettingsIcon from '@mui/icons-material/Settings'
-import Logo from '../../../img/logo.jpg'
+import Logo from '../../../img/logo.jpg';
+import {  useProSidebar } from 'react-pro-sidebar'
 
 function Header () {
+    const { collapseSidebar, toggleSidebar,broken} = useProSidebar ();
     return (
         <AppBar position='sticky' sx={styles.appBar} >
             <Toolbar>
-                 <IconButton onClick={()=>console.log('clicked')} color="secondary">
+                 <IconButton onClick={()=>broken ? toggleSidebar() : collapseSidebar()} color="secondary">
                     <MenuTwoToneIcon />
                  </IconButton>
                  <Box component='img' sx={styles.appLogo}  src={Logo} />
