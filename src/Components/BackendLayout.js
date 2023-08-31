@@ -9,7 +9,7 @@ import Header from './backend/Header/Header';
 import Sidebar from './backend/Sidebar/SideBar';
 import { ProSidebarProvider } from 'react-pro-sidebar'
 import AppRoutes from './router/AppRoutes';
-import { BrowserRouter as Router, Route,Routes, Switch,Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route,Routes, Switch,Link,Outlet } from 'react-router-dom';
 
 function BackendLayout ({ children }) {
    
@@ -23,9 +23,7 @@ function BackendLayout ({ children }) {
                         <Box  sx={styles.container}>
                           
                                 <Sidebar />
-                                <Box component={'main'}  sx={styles.mainSection}>
-                                            {children}
-                                </Box>
+                                <Outlet />
                            
                         </Box>
                     </ProSidebarProvider>

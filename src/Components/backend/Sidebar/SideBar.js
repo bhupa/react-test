@@ -7,12 +7,19 @@ import SourceOutLineIcon from '@mui/icons-material/SourceOutlined';
 import AnalyticsOutLinedIcon from '@mui/icons-material/AnalyticsOutlined';
 import {  useProSidebar } from 'react-pro-sidebar';
 import { Link,useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function SideBar () {
    
         const theme = useTheme()
         const { collapsed} = useProSidebar ();
         const location = useLocation();
+        const {permissions} = useSelector(state => state.user);
+        const checkSlugMatch = (slugToCheck) => {
+            console.log(slugToCheck);
+            return permissions.some(permission => permission.slug === slugToCheck);
+          };
+          console.log(checkSlugMatch)
         return (
            <Sidebar  style={{
             height:'100%',
@@ -33,17 +40,23 @@ function SideBar () {
                     }
                 }
              }}> 
-                <MenuItem  active={location.pathname === '/dashboard'} component={<Link to='/dashboard' />} icon={<DashboardOutLinedIcon />}>
+             
+             {checkSlugMatch('user-lists') ?
+                <MenuItem  active={location.pathname === '/admin/dashboard'} component={<Link to='/admin/dashboard' />} icon={<DashboardOutLinedIcon />}>
                     <Typography variant='body2'>Dashboard</Typography>
-                </MenuItem>
-                <MenuItem active={location.pathname === '/categories'}   component={<Link to='/categories' />} icon={<StyleOutLineIcon />}>
+                </MenuItem> : null }
+         
+                <MenuItem active={location.pathname === '/admin/categories'}   component={<Link to='/admin/categories' />} icon={<StyleOutLineIcon />}>
                     <Typography variant='body2'>Categories</Typography>
                 </MenuItem>
-                <MenuItem active={location.pathname === '/analytics'}  component={<Link to='/analytics' />} icon={<AnalyticsOutLinedIcon />}>
+                <MenuItem active={location.pathname === '/admin/analytics'}  component={<Link to='/admin/analytics' />} icon={<AnalyticsOutLinedIcon />}>
                     <Typography variant='body2'>Analytics</Typography>
                 </MenuItem>
-                <MenuItem  active={location.pathname === '/customization'}  component={<Link to='/customization' />} icon={<SourceOutLineIcon />}>
+                <MenuItem  active={location.pathname === '/admin/customization'}  component={<Link to='/admin/customization' />} icon={<SourceOutLineIcon />}>
                     <Typography variant='body2'>Customization</Typography>
+                </MenuItem>
+                <MenuItem active={location.pathname === '/admin/users'}  component={<Link to='/admin/users' />} icon={<AnalyticsOutLinedIcon />}>
+                    <Typography variant='body2'>Users</Typography>
                 </MenuItem>
                
              </Menu>

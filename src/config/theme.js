@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material';
-import { grey,indigo,green} from '@mui/material/colors';
+import { grey,indigo,green,red} from '@mui/material/colors';
 
 let theme = createTheme({
     palette:{
@@ -18,7 +18,11 @@ let theme = createTheme({
         },
         green:{
             main:green[800]
-        }
+        },
+        danger:{
+            main:red[900]
+        },
+        
     }
 })
 theme = createTheme(theme,{
